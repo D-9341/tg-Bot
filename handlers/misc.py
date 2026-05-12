@@ -78,7 +78,7 @@ async def roll_cmd(message: types.Message, command: CommandObject):
                     rand = random.randint(1, dice_edges)
                     results += f'{i}. {rand}\n'
                     result += rand
-                results += f'В сумме - ||{result}||'
+                results += f'В сумме - <tg-spoiler>{result}</tg-spoiler>'
                 await message.answer(results)
             else:
                 res = random.randint(1, dice_edges)
@@ -100,11 +100,11 @@ async def roll_cmd(message: types.Message, command: CommandObject):
 @router.message(Command("coin"))
 async def coin_cmd(message: types.Message):
     coin = random.choice(["ОРЁЛ", "РЕШКА"])
-    await message.answer(f"{hbold(message.from_user.mention_html())} подбрасывает монетку: {hbold(coin)}")
+    await message.answer(f"{message.from_user.mention_html()} подбрасывает монетку: {hbold(coin)}")
 
 @router.message(Command("about", "me"))
 async def about_cmd(message: types.Message):
-    user = message.reply_to_message.from_user if message.reply_to_message else message.from_user    
+    user = message.reply_to_message.from_user if message.reply_to_message else message.from_user
     is_bot = "Да" if user.is_bot else "Нет"
     info = f"Информация о пользователе:\n\n"
     info += f"Имя: {user.full_name}\n"
