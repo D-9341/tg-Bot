@@ -42,11 +42,6 @@ async def show_main_help(message: types.Message):
 
 async def show_command_help(message: types.Message, cmd_name: str):
     help_dict = {
-        "ping": f"""
-{hbold('Команда:')} {hcode('/ping')}
-{hbold('Описание:')} Проверить задержку бота
-{hbold('Использование:')} {hcode('/ping')}
-        """,
         
         # Игры
         "roll": f"""
@@ -112,7 +107,6 @@ async def help_callback_handler(callback: types.CallbackQuery):
 
 {hcode('/help')} - Эта справка
 {hcode('/help <команда>')} - Помощь по конкретной команде
-{hcode('/ping')} - Проверка работы бота
 {hcode('/info')} - Информация о боте
        """
     
